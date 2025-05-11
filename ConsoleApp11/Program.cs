@@ -5,19 +5,35 @@ using static System.Math;
 Fraction test = new Fraction(1, 2);
 Fraction test2 = new Fraction(3, 4);
 
+// ИСПЫТАНИЕ БИНАРНЫХ АРИФМ. ОПЕРАТОРОВ
 WriteLine(test + test2);
 WriteLine(test - test2);
 WriteLine(test * test2);
 WriteLine(test / test2);
+// ИСПЫТАНИЕ УНАРНЫХ АРИФМ. ОПЕРАТОРОВ
 WriteLine(test++);
 WriteLine(test--);
+// ИСПЫТАНИЕ ОПЕРАТОРОВ ПРОВЕРКИ
 WriteLine(test == test2);
 WriteLine(test != test2);
 WriteLine(test > test2);
 WriteLine(test < test2);
+// ИСПЫТАНИЕ ЛОГИЧЕСКИХ ОПЕРАТОРОВ
 WriteLine(test | test2);
 WriteLine(test & test2);
 
+// ИСПЫТАНИЕ ИЗВЛЕЧЕНИЯ ИЗ КОРНЯ
+test = new Fraction(16, 36);
+test2 = new Fraction(1, 2);
+WriteLine(test);
+test.sqrt();
+WriteLine(test);
+// ИСПЫТАНИЕ ВОЗВЕДЕНИЯ В СТЕПЕНЬ
+WriteLine(test2);
+test2.exp(3);
+WriteLine(test2);
+
+// ИСПЫТАНИЕ ПЕРЕГРУЗКИ TRUE/FALSE
 Fraction test3 = new Fraction(0, 0);
 
 if(test)
@@ -193,27 +209,23 @@ public class Fraction
 
     // КОРЕНЬ
 
-    public Fraction sqrt(Fraction a)
+    public void sqrt()
     {
-        a.C = (int)(Math.Sqrt(a.C));
-        a.Z = (int)(Math.Sqrt(a.Z));
-
-        return a;
+        C = (int)(Math.Sqrt(C));
+        Z = (int)(Math.Sqrt(Z));
     }
 
     // СТЕПЕНЬ
 
-    public Fraction exp(Fraction a, int exp_num)
+    public void exp(int exp_num)
     {
-        int buff_c = a.c;
-        int buff_z = a.z;
+        int buff_c = c;
+        int buff_z = z;
 
-        for(int i = 0; i< exp_num; i++)
+        for (int i = 0; i < exp_num; i++) 
         {
-            a.c *= buff_c;
-            a.z *= buff_z;
+            c *= buff_c;
+            z *= buff_z;
         }
-
-        return a;
     }
 }
