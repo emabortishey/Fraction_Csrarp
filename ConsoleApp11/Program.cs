@@ -200,4 +200,20 @@ public class Fraction
 
         return a;
     }
+
+    // СТЕПЕНЬ
+
+    public Fraction exp(Fraction a, int exp_num)
+    {
+        int buff_c = a.c;
+        int buff_z = a.z;
+
+        for(int i = 0; i< exp_num; i++)
+        {
+            a.c *= buff_c;
+            a.z *= buff_z;
+        }
+
+        return a;
+    }
 }
